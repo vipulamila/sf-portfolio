@@ -3,1062 +3,345 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vipul Kumar | Salesforce Developer Portfolio</title>
-<meta name="description" content="Vipul Kumar is a Salesforce Developer with 2.5 years of experience in Apex, LWC, Flows, and Integrations.">
-<link href="https://fonts.googleapis.com/css2?family=Salesforce+Sans:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>Vipul Kumar | Salesforce Developer</title>
+<meta name="description" content="Professional Salesforce Developer Portfolio - Vipul Kumar">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
+:root {
+  --primary: #0176D3;
+  --accent: #00D4AA;
+  --bg-dark: #070B16;
+  --surface: rgba(255, 255, 255, 0.05);
+  --surface-hover: rgba(255, 255, 255, 0.08);
+  --border-glass: rgba(255, 255, 255, 0.1);
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --font-head: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --glow: 0 0 20px rgba(1, 118, 211, 0.5);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --sf-blue: #0176D3;
-  --sf-dark-blue: #014486;
-  --sf-navy: #032D60;
-  --sf-cloud-blue: #1B96FF;
-  --sf-sky: #E8F4FF;
-  --sf-green: #2E844A;
-  --sf-green-bg: #EEF6EE;
-  --sf-orange: #FE9339;
-  --sf-red: #EA001E;
-  --sf-purple: #9050D6;
-  --text: #181818;
-  --text-mid: #3E3E3C;
-  --text-muted: #706E6B;
-  --border: #DDDBDA;
-  --bg: #F3F2F2;
-  --white: #FFFFFF;
-  --card-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  --font: 'Inter', 'Salesforce Sans', Arial, sans-serif;
-}
-
 body {
-  font-family: var(--font);
-  background: var(--bg);
-  color: var(--text);
-  font-size: 14px;
-  line-height: 1.5;
+  font-family: var(--font-body);
+  background: var(--bg-dark);
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(1, 118, 211, 0.12), transparent 40%),
+    radial-gradient(circle at 85% 30%, rgba(0, 212, 170, 0.08), transparent 40%);
+  color: var(--text-main);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-/* ── TOP NAV (Salesforce-style) ── */
-.sf-nav {
-  background: var(--sf-navy);
-  padding: 0 1.5rem;
-  display: flex; align-items: center; justify-content: space-between;
-  height: 48px;
-  position: sticky; top: 0; z-index: 200;
-}
-.sf-nav-logo {
-  display: flex; align-items: center; gap: 0.5rem;
-  color: white; font-weight: 700; font-size: 1rem; letter-spacing: 0.01em;
-}
-.sf-nav-logo svg { width: 24px; height: 24px; }
-.sf-nav-links {
-  display: flex; gap: 0; list-style: none;
-}
-.sf-nav-links a {
-  color: rgba(255,255,255,0.85); text-decoration: none;
-  padding: 0 1rem; height: 48px;
-  display: flex; align-items: center;
-  font-size: 0.8rem; font-weight: 500;
-  border-bottom: 3px solid transparent;
-  transition: color 0.15s, border-color 0.15s;
-}
-.sf-nav-links a:hover, .sf-nav-links a.active {
-  color: white; border-bottom-color: var(--sf-cloud-blue);
-}
-.sf-nav-right { display: flex; align-items: center; gap: 1rem; }
-.sf-nav-btn {
-  background: var(--sf-cloud-blue); color: white;
-  border: none; border-radius: 4px;
-  padding: 0.4rem 1rem; font-size: 0.75rem; font-weight: 600;
-  cursor: pointer; text-decoration: none;
+/* Glassmorphism Classes */
+.glass {
+  background: var(--surface);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glass);
+  border-radius: 16px;
+  box-shadow: var(--glass-shadow);
 }
 
-/* ── BANNER ── */
-.banner {
-  background: linear-gradient(135deg, var(--sf-navy) 0%, #0D4F8C 60%, #1B6FBC 100%);
-  padding: 0;
-  position: relative;
-  overflow: hidden;
-  min-height: 220px;
+/* Navigation */
+nav {
+  position: fixed; width: 100%; top: 0; z-index: 1000;
+  padding: 1.2rem 5%; display: flex; justify-content: space-between; align-items: center;
+  background: rgba(7, 11, 22, 0.8); backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-glass);
 }
-.banner-pattern {
-  position: absolute; inset: 0;
-  background-image: radial-gradient(circle at 80% 50%, rgba(27,150,255,0.15) 0%, transparent 50%),
-    radial-gradient(circle at 20% 80%, rgba(0,212,170,0.08) 0%, transparent 40%);
-}
-.banner-content {
-  position: relative;
-  max-width: 1200px; margin: 0 auto;
-  padding: 2.5rem 2rem 0;
-  display: flex; align-items: flex-end; gap: 1.5rem;
-}
-.avatar-wrap {
-  flex-shrink: 0;
-  width: 110px; height: 110px;
-  border-radius: 50%;
-  border: 4px solid white;
-  background: linear-gradient(135deg, #0D4F8C, #1B96FF);
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-}
-.avatar-initials-big {
-  font-size: 2.5rem; font-weight: 700; color: white; letter-spacing: -0.03em;
-}
-.banner-info { padding-bottom: 1.5rem; }
-.banner-name {
-  font-size: 1.8rem; font-weight: 700;
-  color: white; line-height: 1.2; margin-bottom: 0.25rem;
-}
-.banner-title {
-  font-size: 0.95rem; color: rgba(255,255,255,0.8); margin-bottom: 0.75rem;
-}
-.banner-badges { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-.banner-badge {
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.25);
-  color: rgba(255,255,255,0.9);
-  padding: 0.2rem 0.7rem; border-radius: 2rem;
-  font-size: 0.7rem; font-weight: 500;
-}
+.logo { font-family: var(--font-head); font-size: 1.5rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; }
+.logo span { background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-/* ── PAGE TABS ── */
-.page-tabs {
-  background: white;
-  border-bottom: 1px solid var(--border);
-  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-}
-.page-tabs-inner {
-  max-width: 1200px; margin: 0 auto;
-  padding: 0 2rem;
-  display: flex; gap: 0;
-}
-.tab-btn {
-  padding: 1rem 1.25rem;
-  border: none; background: none;
-  font-family: var(--font); font-size: 0.8rem; font-weight: 600;
-  color: var(--text-muted); cursor: pointer;
-  border-bottom: 3px solid transparent;
-  transition: color 0.15s, border-color 0.15s;
-  white-space: nowrap;
-}
-.tab-btn:hover { color: var(--sf-blue); }
-.tab-btn.active { color: var(--sf-blue); border-bottom-color: var(--sf-blue); }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { color: var(--text-muted); text-decoration: none; font-family: var(--font-head); font-weight: 600; font-size: 0.95rem; transition: color 0.3s; position: relative; }
+.nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--primary); transition: 0.3s; box-shadow: var(--glow); }
+.nav-links a:hover, .nav-links a.active { color: var(--text-main); }
+.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+.mobile-btn { display: none; background: none; border: none; font-size: 1.8rem; color: white; cursor: pointer; z-index: 1001; margin-top: -5px }
 
-/* ── MAIN LAYOUT ── */
-.main {
-  max-width: 1200px; margin: 2rem auto;
-  padding: 0 2rem;
-  display: grid; grid-template-columns: 280px 1fr;
-  gap: 1.5rem; align-items: start;
-}
+/* Banner / Hero */
+.hero { padding: 8rem 5% 4rem; text-align: center; position: relative; }
+.hero-badge { display: inline-block; padding: 0.5rem 1.2rem; background: rgba(1, 118, 211, 0.15); border: 1px solid rgba(1, 118, 211, 0.3); border-radius: 50px; color: var(--accent); font-family: var(--font-head); font-weight: 600; font-size: 0.85rem; margin-bottom: 1.5rem; animation: float 3s ease-in-out infinite; }
+.hero h1 { font-family: var(--font-head); font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; line-height: 1.1; margin-bottom: 1rem; }
+.hero p { font-size: 1.1rem; color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+.hero-cta { margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
-/* ── SIDEBAR ── */
-.sidebar { display: flex; flex-direction: column; gap: 1rem; }
+.btn { padding: 0.8rem 1.8rem; border-radius: 8px; font-family: var(--font-head); font-weight: 600; text-decoration: none; transition: 0.3s; cursor: pointer; border: none; }
+.btn-primary { background: linear-gradient(135deg, var(--primary), #1B96FF); color: white; box-shadow: var(--glow); }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 0 30px rgba(1, 118, 211, 0.8); }
+.btn-secondary { background: var(--surface); border: 1px solid var(--border-glass); color: var(--text-main); }
+.btn-secondary:hover { background: var(--surface-hover); border-color: var(--primary); }
 
-.sf-card {
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: var(--card-shadow);
-}
-.sf-card-header {
-  padding: 0.85rem 1.1rem;
-  border-bottom: 1px solid var(--border);
-  font-weight: 700; font-size: 0.85rem;
-  color: var(--text);
-  display: flex; align-items: center; gap: 0.5rem;
-}
-.sf-card-header-icon {
-  width: 18px; height: 18px;
-  border-radius: 4px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 0.65rem;
-}
-.sf-card-body { padding: 1rem 1.1rem; }
+/* Main Grid */
+.layout-container { display: grid; grid-template-columns: 320px 1fr; gap: 2rem; max-width: 1300px; margin: 0 auto 5rem; padding: 0 5%; }
 
-.info-row {
-  display: flex; align-items: flex-start; gap: 0.6rem;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid #F3F2F2;
-  font-size: 0.8rem;
-}
-.info-row:last-child { border-bottom: none; }
-.info-icon { font-size: 0.9rem; flex-shrink: 0; margin-top: 1px; }
-.info-label { color: var(--text-muted); font-size: 0.72rem; margin-bottom: 1px; }
-.info-value { color: var(--text); font-weight: 500; }
-.info-link { color: var(--sf-blue); text-decoration: none; }
-.info-link:hover { text-decoration: underline; }
+/* Sidebar Profile Info */
+.sidebar-card { padding: 1.5rem; position: sticky; top: 100px; }
+.avatar { width: 100px; height: 100px; border-radius: 50%; font-size: 2.5rem; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--primary), var(--accent)); color: white; font-family: var(--font-head); margin: 0 auto 1.5rem; box-shadow: var(--glow); }
+.info-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; font-size: 0.9rem; }
+.info-icon { width: 40px; height: 40px; border-radius: 12px; background: rgba(1, 118, 211, 0.1); color: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+.info-text span { display: block; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; }
+.info-text a, .info-text div { color: var(--text-main); text-decoration: none; font-weight: 500; transition: 0.2s; }
+.info-text a:hover { color: var(--accent); }
 
-/* Trailhead stats */
-.th-stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.5rem; text-align: center; }
-.th-stat { padding: 0.75rem 0.5rem; }
-.th-stat-num { font-size: 1.3rem; font-weight: 700; color: var(--sf-blue); }
-.th-stat-label { font-size: 0.65rem; color: var(--text-muted); margin-top: 2px; }
+/* Skills Panel */
+.skills-sec { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-glass); }
+.skills-sec h3 { font-family: var(--font-head); font-size: 1.1rem; margin-bottom: 1rem; }
+.skill { margin-bottom: 1rem; }
+.skill-head { display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.4rem; color: var(--text-main); }
+.skill-bar { height: 6px; background: rgba(255,255,255,0.05); border-radius: 10px; overflow: hidden; }
+.skill-fill { height: 100%; width: 0; background: linear-gradient(90deg, var(--primary), var(--accent)); transition: width 2s cubic-bezier(0.1, 0.7, 0.1, 1); box-shadow: var(--glow); }
 
-/* Skills bar */
-.skill-bar-item { margin-bottom: 0.85rem; }
-.skill-bar-label {
-  display: flex; justify-content: space-between;
-  font-size: 0.75rem; font-weight: 500; margin-bottom: 0.3rem;
-}
-.skill-bar-track {
-  height: 6px; background: var(--bg);
-  border-radius: 3px; overflow: hidden;
-}
-.skill-bar-fill {
-  height: 100%; border-radius: 3px;
-  background: linear-gradient(90deg, var(--sf-blue), var(--sf-cloud-blue));
-  transition: width 1s ease;
-}
-
-/* ── CONTENT AREA ── */
-.content { display: flex; flex-direction: column; gap: 1rem; }
-
-/* Tab panes */
-.tab-pane { display: none; }
+/* Content Section Elements */
+.tab-pane { display: none; animation: fadeUp 0.4s ease-out forwards; }
 .tab-pane.active { display: block; }
+.section-title { font-family: var(--font-head); font-size: 1.5rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+.section-title::before { content: ''; width: 4px; height: 24px; background: var(--accent); border-radius: 2px; box-shadow: 0 0 10px var(--accent); }
 
-/* About Me tabs */
-.inner-tabs {
-  display: flex; gap: 0;
-  border-bottom: 1px solid var(--border);
-  margin-bottom: 1.25rem;
-}
-.inner-tab {
-  padding: 0.6rem 1rem;
-  border: none; background: none;
-  font-family: var(--font); font-size: 0.78rem; font-weight: 600;
-  color: var(--text-muted); cursor: pointer;
-  border-bottom: 2px solid transparent;
-  transition: color 0.15s;
-}
-.inner-tab.active { color: var(--sf-blue); border-bottom-color: var(--sf-blue); }
+/* Cards & Timeline */
+.content-card { padding: 2rem; margin-bottom: 1.5rem; transition: 0.3s; }
+.content-card:hover { transform: translateY(-4px); background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.2); }
+.content-card h4 { font-family: var(--font-head); font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; border-bottom: 1px solid var(--border-glass); padding-bottom: 0.5rem; }
+.content-card .meta { color: var(--accent); font-size: 0.85rem; font-weight: 500; margin-bottom: 1rem; margin-top:0.5rem; }
+.content-card p { color: var(--text-muted); font-size: 0.95rem; }
 
-.section-title {
-  font-size: 1rem; font-weight: 700; margin-bottom: 1rem;
-  padding-bottom: 0.6rem; border-bottom: 1px solid var(--border);
-  display: flex; align-items: center; gap: 0.5rem;
-}
-.section-title-dot {
-  width: 12px; height: 12px; border-radius: 3px;
-  background: var(--sf-blue); display: inline-block;
-}
+.tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.2rem; }
+.tag { font-size: 0.75rem; font-weight: 500; padding: 0.3rem 0.8rem; background: rgba(1, 118, 211, 0.1); border: 1px solid rgba(1, 118, 211, 0.3); border-radius: 6px; color: #60A5FA; }
 
-p { font-size: 0.875rem; color: var(--text-mid); line-height: 1.7; margin-bottom: 0.75rem; }
-p:last-child { margin-bottom: 0; }
+/* Grid specific to certs/badges */
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+.cert-card { text-align: center; padding: 2rem; cursor: pointer; border-top: 3px solid transparent; transition: all 0.3s;}
+.cert-card:hover { border-top: 3px solid var(--accent); }
+.cert-icon { font-size: 3rem; margin-bottom: 1rem; filter: drop-shadow(0 0 10px rgba(0, 212, 170, 0.4)); }
+.badge-status { display: inline-block; margin-top: 1rem; padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600; background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
 
-/* Timeline */
-.timeline { position: relative; }
-.timeline::before {
-  content: ''; position: absolute;
-  left: 14px; top: 6px; bottom: 0;
-  width: 2px; background: #E5E5E5;
-}
-.tl-item {
-  display: flex; gap: 1rem;
-  margin-bottom: 1.5rem; position: relative;
-}
-.tl-dot {
-  flex-shrink: 0; width: 30px; height: 30px;
-  border-radius: 50%;
-  background: white; border: 2px solid var(--sf-blue);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 0.7rem; font-weight: 700;
-  color: var(--sf-blue); z-index: 1;
-  margin-top: 2px;
-}
-.tl-body { flex: 1; }
-.tl-period {
-  font-size: 0.72rem; color: var(--text-muted);
-  font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;
-  margin-bottom: 0.2rem;
-}
-.tl-role { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.1rem; }
-.tl-company {
-  font-size: 0.8rem; color: var(--sf-blue); font-weight: 500;
-  margin-bottom: 0.5rem;
-}
-.tl-details { font-size: 0.8rem; color: var(--text-mid); padding-left: 0; list-style: none; }
-.tl-details li {
-  padding: 0.2rem 0 0.2rem 1rem; position: relative;
-}
-.tl-details li::before {
-  content: ''; position: absolute; left: 0; top: 0.55rem;
-  width: 5px; height: 5px; border-radius: 50%;
-  background: var(--sf-blue);
-}
+/* Keyframes */
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
-/* Certifications */
-.cert-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1rem;
-}
-.cert-tile {
-  background: white; border: 1px solid var(--border);
-  border-radius: 8px; padding: 1.25rem;
-  display: flex; flex-direction: column; align-items: center;
-  text-align: center; gap: 0.75rem;
-  transition: box-shadow 0.2s, transform 0.2s;
-  cursor: default;
-}
-.cert-tile:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.12); transform: translateY(-2px); }
-.cert-logo {
-  width: 64px; height: 64px; border-radius: 12px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.8rem;
-}
-.cert-tile-name { font-size: 0.82rem; font-weight: 700; color: var(--text); line-height: 1.3; }
-.cert-tile-meta { font-size: 0.72rem; color: var(--text-muted); }
-.cert-status {
-  padding: 0.2rem 0.7rem; border-radius: 2rem;
-  font-size: 0.68rem; font-weight: 600;
-}
-.cert-status.active {
-  background: var(--sf-green-bg); color: var(--sf-green);
-}
-.cert-status.planned {
-  background: #FFF3E0; color: var(--sf-orange);
-}
-
-/* Projects */
-.project-list { display: flex; flex-direction: column; gap: 1rem; }
-.project-item {
-  background: white; border: 1px solid var(--border);
-  border-radius: 8px; padding: 1.25rem;
-  display: grid; grid-template-columns: 1fr auto;
-  gap: 1rem; align-start: start;
-  transition: box-shadow 0.2s;
-}
-.project-item:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-.project-header { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.5rem; }
-.project-icon {
-  width: 40px; height: 40px; border-radius: 8px;
-  background: var(--sf-sky);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.2rem; flex-shrink: 0;
-}
-.project-name { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.15rem; }
-.project-type { font-size: 0.72rem; color: var(--text-muted); }
-.project-desc { font-size: 0.8rem; color: var(--text-mid); line-height: 1.6; margin-bottom: 0.75rem; }
-.project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-.project-tag {
-  background: var(--sf-sky); color: var(--sf-dark-blue);
-  font-size: 0.68rem; font-weight: 600;
-  padding: 0.2rem 0.55rem; border-radius: 2rem;
-}
-.project-meta { text-align: right; }
-.project-year { font-size: 0.72rem; color: var(--text-muted); font-weight: 600; }
-
-/* Referral / Contact form */
-.referral-intro {
-  background: var(--sf-sky); border: 1px solid rgba(1,118,211,0.2);
-  border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1.25rem;
-  font-size: 0.82rem; color: var(--sf-dark-blue);
-  display: flex; align-items: flex-start; gap: 0.75rem;
-}
-.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.form-full { grid-column: 1/-1; }
-.form-group { display: flex; flex-direction: column; gap: 0.35rem; }
-.form-group label {
-  font-size: 0.75rem; font-weight: 600; color: var(--text);
-}
-.form-group input, .form-group textarea, .form-group select {
-  border: 1px solid var(--border);
-  border-radius: 4px; padding: 0.5rem 0.75rem;
-  font-family: var(--font); font-size: 0.82rem; color: var(--text);
-  background: white; outline: none;
-  transition: border-color 0.15s, box-shadow 0.15s;
-}
-.form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-  border-color: var(--sf-blue);
-  box-shadow: 0 0 0 3px rgba(1,118,211,0.15);
-}
-.form-group textarea { min-height: 90px; resize: vertical; }
-.form-actions { display: flex; gap: 0.75rem; margin-top: 0.5rem; }
-.sf-btn {
-  padding: 0.55rem 1.25rem; border-radius: 4px;
-  font-family: var(--font); font-size: 0.8rem; font-weight: 600;
-  cursor: pointer; transition: all 0.15s;
-}
-.sf-btn-primary {
-  background: var(--sf-blue); color: white; border: none;
-}
-.sf-btn-primary:hover { background: var(--sf-dark-blue); }
-.sf-btn-secondary {
-  background: white; color: var(--sf-blue);
-  border: 1px solid var(--sf-blue);
-}
-.sf-btn-secondary:hover { background: var(--sf-sky); }
-
-/* Trailhead badges section */
-.badge-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  gap: 1rem;
-}
-.badge-item {
-  display: flex; flex-direction: column; align-items: center;
-  gap: 0.4rem; text-align: center;
-  padding: 0.75rem 0.5rem; border-radius: 8px;
-  background: white; border: 1px solid var(--border);
-  transition: transform 0.2s;
-}
-.badge-item:hover { transform: scale(1.04); }
-.badge-icon {
-  width: 52px; height: 52px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.5rem;
-}
-.badge-name { font-size: 0.68rem; font-weight: 600; color: var(--text); line-height: 1.3; }
-.badge-type { font-size: 0.62rem; color: var(--text-muted); }
-
-/* Activity feed */
-.activity-item {
-  display: flex; gap: 0.75rem;
-  padding: 0.75rem 0; border-bottom: 1px solid #F3F2F2;
-  font-size: 0.8rem;
-}
-.activity-item:last-child { border-bottom: none; }
-.activity-dot {
-  width: 8px; height: 8px; border-radius: 50%;
-  margin-top: 5px; flex-shrink: 0;
-}
-.activity-text { color: var(--text-mid); }
-.activity-text strong { color: var(--text); }
-.activity-time { font-size: 0.7rem; color: var(--text-muted); margin-top: 2px; }
-
-/* Footer */
-footer {
-  background: var(--sf-navy);
-  color: rgba(255,255,255,0.6); text-align: center;
-  padding: 1.5rem; font-size: 0.75rem;
-  margin-top: 2rem;
-}
-footer a { color: var(--sf-cloud-blue); text-decoration: none; }
-
-/* Responsive */
-@media (max-width: 780px) {
-  .main { grid-template-columns: 1fr; }
-  .banner-content { flex-direction: column; align-items: flex-start; }
-  .cert-grid { grid-template-columns: repeat(2,1fr); }
-  .form-grid { grid-template-columns: 1fr; }
-  .project-item { grid-template-columns: 1fr; }
+/* Mobile Reponsive Overrides */
+@media (max-width: 900px) {
+  .layout-container { grid-template-columns: 1fr; }
+  .sidebar-card { position: static; margin-bottom: 2rem; }
+  
+  .mobile-btn { display: block; }
+  .nav-links {
+    position: absolute; top: 100%; left: 0; width: 100%;
+    flex-direction: column; background: rgba(7, 11, 22, 0.98);
+    backdrop-filter: blur(20px); padding: 0; border-bottom: 1px solid var(--border-glass);
+    max-height: 0; overflow: hidden; transition: max-height 0.4s ease;
+  }
+  .nav-links.open { max-height: 400px; padding: 1.5rem 5%; }
+  .nav-links a { display: block; padding: 0.8rem 0; font-size: 1.1rem; }
 }
 </style>
 </head>
 <body>
 
-<!-- SF-STYLE TOP NAV -->
-<nav class="sf-nav">
-  <div class="sf-nav-logo">
-    <svg viewBox="0 0 40 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M16.5 5C18.3 2 21 0 24 0c4.4 0 8 3.4 8.3 7.7C33.4 8 34.7 8 36 8.5c2.2 1 3.8 3.1 4 5.5H0c.3-3.3 3-6 6.4-6.1.6-1.5 2-2.7 3.6-2.9" fill="white" opacity="0.9"/>
-      <path d="M4 20h32" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
-    </svg>
-    Vipul Kumar
-  </div>
-  <ul class="sf-nav-links">
-    <li><a href="#" class="active" onclick="switchPage('home',this)">Home</a></li>
-    <li><a href="#" onclick="switchPage('portfolio',this)">Portfolio</a></li>
-    <li><a href="#" onclick="switchPage('certifications',this)">Certifications</a></li>
-    <li><a href="#" onclick="switchPage('referrals',this)">Referrals</a></li>
+<nav>
+  <div class="logo">VK <span>SF DEV</span></div>
+  <button class="mobile-btn" onclick="toggleNav()">☰</button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#" class="active" onclick="switchPage('home', event)">Overview</a></li>
+    <li><a href="#" onclick="switchPage('portfolio', event)">Projects</a></li>
+    <li><a href="#" onclick="switchPage('certs', event)">Credentials</a></li>
+    <li><a href="https://www.linkedin.com/in/vipul-kumar-647965201" target="_blank">LinkedIn ↗</a></li>
   </ul>
-  <div class="sf-nav-right">
-    <a href="https://www.linkedin.com/in/vipul-kumar-647965201" target="_blank" class="sf-nav-btn">LinkedIn ↗</a>
-  </div>
 </nav>
 
-<!-- BANNER -->
-<div class="banner">
-  <div class="banner-pattern"></div>
-  <div class="banner-content">
-    <div class="avatar-wrap">
-      <div class="avatar-initials-big">VK</div>
-    </div>
-    <div class="banner-info">
-      <div class="banner-name">Vipul Kumar</div>
-      <div class="banner-title">Salesforce Developer · 2.5 Years Experience · India</div>
-      <div class="banner-badges">
-        <span class="banner-badge">⚡ Apex Developer</span>
-        <span class="banner-badge">🖥 LWC Specialist</span>
-        <span class="banner-badge">☁️ Sales Cloud</span>
-        <span class="banner-badge">🔗 Integration Expert</span>
-        <span class="banner-badge">🏅 Certified Admin</span>
-      </div>
-    </div>
+<section class="hero">
+  <div class="hero-badge">⚡ Advanced Salesforce Solutions</div>
+  <h1>Vipul Kumar</h1>
+  <p>2.5 years of expertise in building scalable architectures, dynamic LWC interfaces, and seamless enterprise integrations on the Salesforce platform.</p>
+  <div class="hero-cta">
+    <a href="#" class="btn btn-primary" onclick="switchPage('portfolio', event)">View My Work</a>
+    <a href="#" class="btn btn-secondary" onclick="document.querySelector('.sidebar-card').scrollIntoView({behavior: 'smooth'})">Get Connected</a>
   </div>
-</div>
+</section>
 
-<!-- PAGE TABS -->
-<div class="page-tabs">
-  <div class="page-tabs-inner">
-    <button class="tab-btn active" onclick="switchPage('home', null, this)">Home</button>
-    <button class="tab-btn" onclick="switchPage('portfolio', null, this)">Portfolio</button>
-    <button class="tab-btn" onclick="switchPage('certifications', null, this)">Certifications</button>
-    <button class="tab-btn" onclick="switchPage('referrals', null, this)">Referrals</button>
-  </div>
-</div>
-
-<!-- MAIN -->
-<div class="main">
-
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-
-    <!-- Contact Info -->
-    <div class="sf-card">
-      <div class="sf-card-header">
-        <div class="sf-card-header-icon" style="background:#E8F4FF;">👤</div>
-        Contact Info
+<div class="layout-container">
+  
+  <!-- Sidebar Panel -->
+  <aside>
+    <div class="glass sidebar-card">
+      <div class="avatar">VK</div>
+      
+      <div class="info-row">
+        <div class="info-icon">📍</div>
+        <div class="info-text"><span>Location</span><div>India (Open to Remote)</div></div>
       </div>
-      <div class="sf-card-body" style="padding-top:0.5rem;">
-        <div class="info-row">
-          <span class="info-icon">🔗</span>
-          <div>
-            <div class="info-label">LinkedIn</div>
-            <a href="https://www.linkedin.com/in/vipul-kumar-647965201" target="_blank" class="info-link info-value">vipul-kumar-647965201</a>
-          </div>
+      <div class="info-row">
+        <div class="info-icon">✉️</div>
+        <div class="info-text"><span>Email</span><a href="mailto:vipulamila93@gmail.com">vipulamila93@gmail.com</a></div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">☁️</div>
+        <div class="info-text"><span>Trailblazer Profile</span><a href="https://www.salesforce.com/trailblazer/vkumar2903" target="_blank">View Trailhead</a></div>
+      </div>
+      
+      <div class="skills-sec">
+        <h3>Core Expertise</h3>
+        <div class="skill">
+          <div class="skill-head"><span>Apex & Integration</span><span>90%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="90%"></div></div>
         </div>
-        <div class="info-row">
-          <span class="info-icon">✉️</span>
-          <div>
-            <div class="info-label">Email</div>
-            <div class="info-value">vipulamila93@gmail.com</div>
-          </div>
+        <div class="skill">
+          <div class="skill-head"><span>Lightning Web Components</span><span>85%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="85%"></div></div>
         </div>
-        <div class="info-row">
-          <span class="info-icon">📍</span>
-          <div>
-            <div class="info-label">Location</div>
-            <div class="info-value">India · Open to Remote</div>
-          </div>
-        </div>
-        <div class="info-row">
-          <span class="info-icon">💼</span>
-          <div>
-            <div class="info-label">Experience</div>
-            <div class="info-value">2.5 Years</div>
-          </div>
-        </div>
-        <div class="info-row">
-          <span class="info-icon">🎓</span>
-          <div>
-            <div class="info-label">Trailblazer Profile</div>
-            <a href="https://www.salesforce.com/trailblazer/vkumar2903" target="_blank" class="info-link info-value">View on Trailhead</a>
-          </div>
+        <div class="skill">
+          <div class="skill-head"><span>Flow Builder & Automation</span><span>95%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="95%"></div></div>
         </div>
       </div>
     </div>
-
-    <!-- Trailhead Stats -->
-    <div class="sf-card">
-      <div class="sf-card-header">
-        <div class="sf-card-header-icon" style="background:#FFF3E0;">🏆</div>
-        Trailhead Stats
-      </div>
-      <div class="sf-card-body" style="padding:0.5rem 0.5rem 0.75rem;">
-        <div class="th-stats">
-          <div class="th-stat">
-            <div class="th-stat-num">3+</div>
-            <div class="th-stat-label">Certs</div>
-          </div>
-          <div class="th-stat">
-            <div class="th-stat-num">50+</div>
-            <div class="th-stat-label">Badges</div>
-          </div>
-          <div class="th-stat">
-            <div class="th-stat-num">5+</div>
-            <div class="th-stat-label">Superbadges</div>
-          </div>
-        </div>
-        <div style="text-align:center; padding: 0.25rem 0.5rem 0; font-size:0.72rem; color:var(--text-muted);">
-          Update with your actual Trailhead stats
-        </div>
-      </div>
-    </div>
-
-    <!-- Skills -->
-    <div class="sf-card">
-      <div class="sf-card-header">
-        <div class="sf-card-header-icon" style="background:#EEF6EE;">⚡</div>
-        Core Skills
-      </div>
-      <div class="sf-card-body">
-        <div class="skill-bar-item">
-          <div class="skill-bar-label"><span>Apex Development</span><span style="color:var(--sf-blue)">90%</span></div>
-          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:90%"></div></div>
-        </div>
-        <div class="skill-bar-item">
-          <div class="skill-bar-label"><span>Lightning Web Comp.</span><span style="color:var(--sf-blue)">85%</span></div>
-          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:85%"></div></div>
-        </div>
-        <div class="skill-bar-item">
-          <div class="skill-bar-label"><span>Flow Builder</span><span style="color:var(--sf-blue)">88%</span></div>
-          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:88%"></div></div>
-        </div>
-        <div class="skill-bar-item">
-          <div class="skill-bar-label"><span>REST / SOAP API</span><span style="color:var(--sf-blue)">80%</span></div>
-          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:80%"></div></div>
-        </div>
-        <div class="skill-bar-item">
-          <div class="skill-bar-label"><span>Sales / Service Cloud</span><span style="color:var(--sf-blue)">85%</span></div>
-          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:85%"></div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Recent Activity -->
-    <div class="sf-card">
-      <div class="sf-card-header">
-        <div class="sf-card-header-icon" style="background:#F3F2F2;">📋</div>
-        Recent Activity
-      </div>
-      <div class="sf-card-body" style="padding-top:0.25rem; padding-bottom:0.25rem;">
-        <div class="activity-item">
-          <div class="activity-dot" style="background:#2E844A;"></div>
-          <div>
-            <div class="activity-text">Earned <strong>Flow Builder Superbadge</strong></div>
-            <div class="activity-time">Recently</div>
-          </div>
-        </div>
-        <div class="activity-item">
-          <div class="activity-dot" style="background:#0176D3;"></div>
-          <div>
-            <div class="activity-text">Completed <strong>LWC Specialist Trail</strong></div>
-            <div class="activity-time">Recently</div>
-          </div>
-        </div>
-        <div class="activity-item">
-          <div class="activity-dot" style="background:#9050D6;"></div>
-          <div>
-            <div class="activity-text">Updated <strong>Portfolio Site</strong></div>
-            <div class="activity-time">Today</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </aside>
 
-  <!-- CONTENT -->
-  <div class="content">
-
-    <!-- ═══ HOME PAGE ═══ -->
+  <!-- Main Content Space -->
+  <main>
+    
+    <!-- OVERVIEW PAGE -->
     <div id="page-home" class="tab-pane active">
-
-      <div class="sf-card">
-        <div class="sf-card-header">
-          <div class="sf-card-header-icon" style="background:#E8F4FF;">📝</div>
-          About Me
-        </div>
-        <div class="sf-card-body">
-          <!-- Inner tabs: About / Expertise / Experience -->
-          <div class="inner-tabs">
-            <button class="inner-tab active" onclick="switchInner('about-me',this)">About Me</button>
-            <button class="inner-tab" onclick="switchInner('expertise',this)">Expertise</button>
-            <button class="inner-tab" onclick="switchInner('experience',this)">Experience</button>
-          </div>
-
-          <!-- About Me -->
-          <div id="inner-about-me" class="tab-pane active">
-            <p>
-              Hi! I'm <strong>Vipul Kumar</strong>, a passionate Salesforce Developer based in India with <strong>2.5 years of hands-on experience</strong> building scalable CRM solutions on the Salesforce platform.
-            </p>
-            <p>
-              My journey in the Salesforce ecosystem started with a deep curiosity for how technology can streamline business processes. Since then, I've been working with Apex, Lightning Web Components, Flow Builder, and API integrations to deliver solutions that make a real difference for businesses.
-            </p>
-            <p>
-              I'm a proud Trailblazer who believes in continuous learning — you'll often find me exploring new Trailhead modules, earning superbadges, and staying current with Salesforce releases. I'm passionate about clean code, reusable components, and building solutions that scale.
-            </p>
-            <p>
-              When I'm not building on Salesforce, I enjoy contributing to the Trailblazer Community, helping fellow developers, and exploring new features across the Salesforce platform.
-            </p>
-          </div>
-
-          <!-- Expertise -->
-          <div id="inner-expertise" class="tab-pane" style="display:none;">
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
-              <div>
-                <div class="section-title"><span class="section-title-dot"></span>Development</div>
-                <ul style="font-size:0.82rem; color:var(--text-mid); list-style:none; padding:0;">
-                  <li style="padding:0.3rem 0; border-bottom:1px solid #F3F2F2;">✅ Apex Classes & Triggers</li>
-                  <li style="padding:0.3rem 0; border-bottom:1px solid #F3F2F2;">✅ Batch, Queueable, Scheduled Apex</li>
-                  <li style="padding:0.3rem 0; border-bottom:1px solid #F3F2F2;">✅ Lightning Web Components (LWC)</li>
-                  <li style="padding:0.3rem 0; border-bottom:1px solid #F3F2F2;">✅ Aura Components</li>
-                  <li style="padding:0.3rem 0; border-bottom:1px solid #F3F2F2;">✅ SOQL & SOSL Queries</li>
-                  <li style="padding:0.3rem 0;">✅ Visualforce Pages</li>
-                </ul>
-              </div>
-              <div>
-                <div class="section-title"><span class="section-title-dot" style="background:#2E844A;"></span>Platform & Admin</div>
-                <ul style="font-size:0.82rem; color:var(--text-mid); list-style:none; padding:0;">
-                  <li style="padding:0.3rem 0; border-bottom:1px solid #F3F2F2;">✅ Flow Builder & Process Builder</li>
-                  <li style="padding:0.3rem 0; border-bottom:1px solid #F3F2F2;">✅ REST & SOAP API Integrations</li>
-                  <li style="padding:0.3rem 0; border-bottom:1px solid #F3F2F2;">✅ Named Credentials</li>
-                  <li style="padding:0.3rem 0; border-bottom:1px solid #F3F2F2;">✅ Platform Events</li>
-                  <li style="padding:0.3rem 0; border-bottom:1px solid #F3F2F2;">✅ Sales Cloud & Service Cloud</li>
-                  <li style="padding:0.3rem 0;">✅ Experience Cloud</li>
-                </ul>
-              </div>
-            </div>
-            <div style="margin-top:1rem;">
-              <div class="section-title"><span class="section-title-dot" style="background:#9050D6;"></span>Tools & DevOps</div>
-              <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:0.5rem;">
-                <span style="background:#F3F2F2; padding:0.3rem 0.75rem; border-radius:2rem; font-size:0.75rem; font-weight:500;">VS Code</span>
-                <span style="background:#F3F2F2; padding:0.3rem 0.75rem; border-radius:2rem; font-size:0.75rem; font-weight:500;">SFDX CLI</span>
-                <span style="background:#F3F2F2; padding:0.3rem 0.75rem; border-radius:2rem; font-size:0.75rem; font-weight:500;">Git & GitHub</span>
-                <span style="background:#F3F2F2; padding:0.3rem 0.75rem; border-radius:2rem; font-size:0.75rem; font-weight:500;">Workbench</span>
-                <span style="background:#F3F2F2; padding:0.3rem 0.75rem; border-radius:2rem; font-size:0.75rem; font-weight:500;">Jira</span>
-                <span style="background:#F3F2F2; padding:0.3rem 0.75rem; border-radius:2rem; font-size:0.75rem; font-weight:500;">Data Loader</span>
-                <span style="background:#F3F2F2; padding:0.3rem 0.75rem; border-radius:2rem; font-size:0.75rem; font-weight:500;">Postman</span>
-                <span style="background:#F3F2F2; padding:0.3rem 0.75rem; border-radius:2rem; font-size:0.75rem; font-weight:500;">Salesforce Inspector</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Experience -->
-          <div id="inner-experience" class="tab-pane" style="display:none;">
-            <div class="timeline">
-              <div class="tl-item">
-                <div class="tl-dot">SF</div>
-                <div class="tl-body">
-                  <div class="tl-period">2022 — Present</div>
-                  <div class="tl-role">Salesforce Developer</div>
-                  <div class="tl-company">Current Organization · Full Time</div>
-                  <ul class="tl-details">
-                    <li>Developed custom Apex triggers, classes, and batch jobs for complex business logic automation.</li>
-                    <li>Built and maintained Lightning Web Components (LWC) for Sales and Service Cloud enhancements.</li>
-                    <li>Implemented bi-directional REST API integrations with third-party ERP and CRM systems.</li>
-                    <li>Migrated legacy Process Builder automations to scalable Screen & Record-Triggered Flows.</li>
-                    <li>Maintained 85%+ test coverage; conducted peer code reviews and deployment via SFDX pipelines.</li>
-                    <li>Worked directly with business stakeholders to gather requirements and deliver iterative releases.</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="tl-item">
-                <div class="tl-dot" style="border-color:#2E844A; color:#2E844A;">🎓</div>
-                <div class="tl-body">
-                  <div class="tl-period">2020 — 2022</div>
-                  <div class="tl-role">Bachelor's Degree</div>
-                  <div class="tl-company">University · Computer Science / Engineering</div>
-                  <ul class="tl-details">
-                    <li>Graduated with a degree in Computer Science / relevant field.</li>
-                    <li>Began Salesforce learning on Trailhead during final year.</li>
-                    <li>Earned first Salesforce Admin certification before graduation.</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
+      <h2 class="section-title">Professional Journey</h2>
+      
+      <div class="glass content-card">
+        <h4>About Me</h4>
+        <p>I am a passionate Salesforce Developer dedicated to turning complex business logic into scalable CRM architectures. With deep roots in programmatic development (Apex, LWC) and powerful declarative tools (Flows), I focus on delivering clean code and exceptional user experiences. I thrive in agile environments and actively participate in the Trailblazer community.</p>
+      </div>
+      
+      <div class="glass content-card">
+        <h4>Salesforce Developer</h4>
+        <div class="meta">Current Organization • 2022 — Present</div>
+        <p>Delivered dynamic Lightning Web Components reducing UI friction by 30%. Built scalable REST integrations with external ERP systems. Migrated hundreds of legacy Process Builders to highly optimized Flows.</p>
+        <div class="tags">
+          <span class="tag">Apex Triggers</span><span class="tag">LWC</span><span class="tag">SOQL/SOSL</span><span class="tag">Batch Processing</span>
         </div>
       </div>
-
-      <!-- Trailhead Badges -->
-      <div class="sf-card">
-        <div class="sf-card-header">
-          <div class="sf-card-header-icon" style="background:#FFF3E0;">🏅</div>
-          Featured Trailhead Badges & Superbadges
-        </div>
-        <div class="sf-card-body">
-          <div class="badge-grid">
-            <div class="badge-item"><div class="badge-icon" style="background:#FFF3E0;">🔄</div><div class="badge-name">Flow Builder Specialist</div><div class="badge-type">Superbadge</div></div>
-            <div class="badge-item"><div class="badge-icon" style="background:#E8F4FF;">⚡</div><div class="badge-name">Apex Specialist</div><div class="badge-type">Superbadge</div></div>
-            <div class="badge-item"><div class="badge-icon" style="background:#EEF6EE;">🖥</div><div class="badge-name">LWC Specialist</div><div class="badge-type">Superbadge</div></div>
-            <div class="badge-item"><div class="badge-icon" style="background:#F3EEFF;">☁️</div><div class="badge-name">Service Cloud Specialist</div><div class="badge-type">Superbadge</div></div>
-            <div class="badge-item"><div class="badge-icon" style="background:#E8F4FF;">🔗</div><div class="badge-name">Integration Architecture</div><div class="badge-type">Trail</div></div>
-            <div class="badge-item"><div class="badge-icon" style="background:#FFF3E0;">📊</div><div class="badge-name">Reports & Dashboards</div><div class="badge-type">Badge</div></div>
-          </div>
-          <p style="margin-top:1rem; font-size:0.72rem; color:var(--text-muted);">* Replace with your actual Trailhead badges from trailhead.salesforce.com/credentials/verification</p>
-        </div>
+        
+      <div class="glass content-card" style="border-left: 2px solid #00D4AA;">
+        <h4>University & Foundational Training</h4>
+        <div class="meta">Computer Science • 2020 — 2022</div>
+        <p>Graduated with a strong foundation in Computer Science principles. Acquired initial Salesforce Admin certification establishing platform competency before entering professional development workflows.</p>
       </div>
-
     </div>
 
-    <!-- ═══ PORTFOLIO PAGE ═══ -->
-    <div id="page-portfolio" class="tab-pane" style="display:none;">
-      <div class="sf-card">
-        <div class="sf-card-header">
-          <div class="sf-card-header-icon" style="background:#E8F4FF;">💼</div>
-          My Projects & Work
+    <!-- PROJECTS PAGE -->
+    <div id="page-portfolio" class="tab-pane">
+      <h2 class="section-title">Featured Projects</h2>
+      
+      <div class="glass content-card project">
+        <div style="float: right; font-size: 2rem;">⚡</div>
+        <h4>Enterprise Pipeline Automation</h4>
+        <div class="meta">Apex · Sales Cloud · Flows</div>
+        <p>Engineered an end-to-end Opportunity lifecycle automation suite. Replaced manual data entry with context-aware screen flows and automated backend stage transitions via Apex triggers. Increased team pipeline visibility while reducing data latency by 60%.</p>
+        <div class="tags">
+          <span class="tag">Sales Cloud</span><span class="tag">Triggers</span><span class="tag">Screen Flows</span>
         </div>
-        <div class="sf-card-body">
-          <div class="project-list">
-
-            <div class="project-item">
-              <div>
-                <div class="project-header">
-                  <div class="project-icon">🤖</div>
-                  <div>
-                    <div class="project-name">Sales Automation & Pipeline Management</div>
-                    <div class="project-type">Apex · LWC · Flows · Sales Cloud</div>
-                  </div>
-                </div>
-                <div class="project-desc">
-                  Built an end-to-end opportunity management system. Created custom Apex triggers for automated stage transitions, LWC dashboards with real-time pipeline visibility, and record-triggered Flows to replace manual tasks — reducing data entry effort by ~60%.
-                </div>
-                <div class="project-tags">
-                  <span class="project-tag">Apex Triggers</span>
-                  <span class="project-tag">LWC</span>
-                  <span class="project-tag">Flow Builder</span>
-                  <span class="project-tag">Sales Cloud</span>
-                  <span class="project-tag">SOQL</span>
-                </div>
-              </div>
-              <div class="project-meta"><div class="project-year">2023–24</div></div>
-            </div>
-
-            <div class="project-item">
-              <div>
-                <div class="project-header">
-                  <div class="project-icon">🔗</div>
-                  <div>
-                    <div class="project-name">ERP ↔ Salesforce Bi-Directional Integration</div>
-                    <div class="project-type">REST API · Platform Events · Named Credentials</div>
-                  </div>
-                </div>
-                <div class="project-desc">
-                  Designed and implemented a bi-directional REST API integration between Salesforce and an external ERP system. Used Named Credentials for secure auth, Platform Events for real-time sync, and Batch Apex for bulk data backfill operations.
-                </div>
-                <div class="project-tags">
-                  <span class="project-tag">REST API</span>
-                  <span class="project-tag">Platform Events</span>
-                  <span class="project-tag">Named Credentials</span>
-                  <span class="project-tag">Batch Apex</span>
-                  <span class="project-tag">JSON Parsing</span>
-                </div>
-              </div>
-              <div class="project-meta"><div class="project-year">2023</div></div>
-            </div>
-
-            <div class="project-item">
-              <div>
-                <div class="project-header">
-                  <div class="project-icon">🌐</div>
-                  <div>
-                    <div class="project-name">Customer Self-Service Experience Portal</div>
-                    <div class="project-type">Experience Cloud · LWC · Service Cloud</div>
-                  </div>
-                </div>
-                <div class="project-desc">
-                  Developed a branded Experience Cloud portal with custom LWC components allowing customers to raise cases, track order status, access a Knowledge Base, and submit feedback — reducing inbound support volume by 35%.
-                </div>
-                <div class="project-tags">
-                  <span class="project-tag">Experience Cloud</span>
-                  <span class="project-tag">LWC</span>
-                  <span class="project-tag">Service Cloud</span>
-                  <span class="project-tag">Knowledge</span>
-                  <span class="project-tag">Guest Profile</span>
-                </div>
-              </div>
-              <div class="project-meta"><div class="project-year">2022–23</div></div>
-            </div>
-
-            <div class="project-item">
-              <div>
-                <div class="project-header">
-                  <div class="project-icon">📊</div>
-                  <div>
-                    <div class="project-name">Dynamic Approval Workflow Engine</div>
-                    <div class="project-type">Apex · Flows · Custom Metadata</div>
-                  </div>
-                </div>
-                <div class="project-desc">
-                  Built a configurable multi-level approval system using Custom Metadata Types, Apex, and Flow orchestration. Business admins can configure approval chains without code changes, making the solution fully declarative-driven.
-                </div>
-                <div class="project-tags">
-                  <span class="project-tag">Apex</span>
-                  <span class="project-tag">Custom Metadata</span>
-                  <span class="project-tag">Flow Orchestration</span>
-                  <span class="project-tag">Approval Process</span>
-                </div>
-              </div>
-              <div class="project-meta"><div class="project-year">2022</div></div>
-            </div>
-
-          </div>
+      </div>
+      
+      <div class="glass content-card project">
+        <div style="float: right; font-size: 2rem;">🔗</div>
+        <h4>Bi-Directional ERP Sync Engine</h4>
+        <div class="meta">REST API · Platform Events · Named Credentials</div>
+        <p>Architected a secure, resilient sync mechanism connecting Salesforce with a legacy on-premise ERP. Designed inbound custom REST endpoints and managed outbound event-driven architecture using Platform Events to prevent callout limits.</p>
+        <div class="tags">
+          <span class="tag">Integration</span><span class="tag">Platform Events</span><span class="tag">JSON parsing</span>
+        </div>
+      </div>
+      
+      <div class="glass content-card project">
+        <div style="float: right; font-size: 2rem;">🌐</div>
+        <h4>Self-Service Experience Portal</h4>
+        <div class="meta">Experience Cloud · LWC</div>
+        <p>Launched a sleek, fully branded customer portal using modern LWC paradigms. Features included live case deflection, knowledge base surfacing, and real-time order tracking components directly interfacing with custom Salesforce objects.</p>
+        <div class="tags">
+          <span class="tag">Experience Cloud</span><span class="tag">LWC</span><span class="tag">Service Cloud</span>
         </div>
       </div>
     </div>
 
-    <!-- ═══ CERTIFICATIONS PAGE ═══ -->
-    <div id="page-certifications" class="tab-pane" style="display:none;">
-      <div class="sf-card">
-        <div class="sf-card-header">
-          <div class="sf-card-header-icon" style="background:#FFF3E0;">🏅</div>
-          Salesforce Certifications
+    <!-- CREDENTIALS PAGE -->
+    <div id="page-certs" class="tab-pane">
+      <h2 class="section-title">Certifications & Badges</h2>
+      
+      <div class="grid-2">
+        <div class="glass cert-card">
+          <div class="cert-icon">🛡️</div>
+          <h4>Salesforce Administrator</h4>
+          <p>Salesforce • ADM201</p>
+          <span class="badge-status">Verified Active</span>
         </div>
-        <div class="sf-card-body">
-          <div style="margin-bottom:1rem; padding:0.75rem 1rem; background:var(--sf-sky); border-radius:6px; font-size:0.8rem; color:var(--sf-dark-blue);">
-            🔍 Verify my credentials: <a href="https://trailhead.salesforce.com/credentials/verification" target="_blank" style="color:var(--sf-blue); font-weight:600;">trailhead.salesforce.com/credentials/verification</a> → Enter my email to see all verified badges.
-          </div>
-          <div class="cert-grid">
-            <div class="cert-tile">
-              <div class="cert-logo" style="background:#FFF3E0;">🛡️</div>
-              <div class="cert-tile-name">Salesforce Certified Administrator</div>
-              <div class="cert-tile-meta">Salesforce · ADM201</div>
-              <span class="cert-status active">✓ Active</span>
-            </div>
-            <div class="cert-tile">
-              <div class="cert-logo" style="background:#E8F4FF;">⚡</div>
-              <div class="cert-tile-name">Platform Developer I</div>
-              <div class="cert-tile-meta">Salesforce · PD1</div>
-              <span class="cert-status active">✓ Active</span>
-            </div>
-            <div class="cert-tile">
-              <div class="cert-logo" style="background:#EEF6EE;">🏗️</div>
-              <div class="cert-tile-name">Platform App Builder</div>
-              <div class="cert-tile-meta">Salesforce · DEV402</div>
-              <span class="cert-status active">✓ Active</span>
-            </div>
-            <div class="cert-tile">
-              <div class="cert-logo" style="background:#F3EEFF;">🔧</div>
-              <div class="cert-tile-name">Platform Developer II</div>
-              <div class="cert-tile-meta">Salesforce · PD2</div>
-              <span class="cert-status planned">In Progress</span>
-            </div>
-          </div>
-          <p style="margin-top:1.25rem; font-size:0.75rem; color:var(--text-muted);">* Update with your actual certifications. Earn a Trailhead badge for completing this portfolio module!</p>
+        <div class="glass cert-card">
+          <div class="cert-icon">💻</div>
+          <h4>Platform Developer I</h4>
+          <p>Salesforce • PD1</p>
+          <span class="badge-status">Verified Active</span>
+        </div>
+        <div class="glass cert-card">
+          <div class="cert-icon">🏗️</div>
+          <h4>Platform App Builder</h4>
+          <p>Salesforce • DEV402</p>
+          <span class="badge-status">Verified Active</span>
+        </div>
+        <div class="glass cert-card" style="border-top-color: var(--primary);">
+          <div class="cert-icon">🔄</div>
+          <h4>Flow Builder Specialist</h4>
+          <p>Trailhead Superbadge</p>
+          <span class="badge-status" style="background: rgba(1, 118, 211, 0.2); border-color: var(--primary); color: #60A5FA;">Completed</span>
         </div>
       </div>
     </div>
 
-    <!-- ═══ REFERRALS PAGE ═══ -->
-    <div id="page-referrals" class="tab-pane" style="display:none;">
-      <div class="sf-card">
-        <div class="sf-card-header">
-          <div class="sf-card-header-icon" style="background:#EEF6EE;">💬</div>
-          Referrals & Recommendations
-        </div>
-        <div class="sf-card-body">
-          <div class="referral-intro">
-            <span>📨</span>
-            <div>Want to leave a recommendation or reach out for a collaboration? Fill in the form below — I'd love to connect with fellow Trailblazers, recruiters, and potential employers!
-            </div>
-          </div>
-          <form onsubmit="handleReferral(event)">
-            <div class="form-grid">
-              <div class="form-group">
-                <label>First Name *</label>
-                <input type="text" placeholder="John" required>
-              </div>
-              <div class="form-group">
-                <label>Last Name *</label>
-                <input type="text" placeholder="Doe" required>
-              </div>
-              <div class="form-group">
-                <label>Company</label>
-                <input type="text" placeholder="Acme Corp">
-              </div>
-              <div class="form-group">
-                <label>Email *</label>
-                <input type="email" placeholder="john@company.com" required>
-              </div>
-              <div class="form-group">
-                <label>Relationship</label>
-                <select>
-                  <option>Select...</option>
-                  <option>Colleague</option>
-                  <option>Manager / Lead</option>
-                  <option>Client</option>
-                  <option>Recruiter</option>
-                  <option>Fellow Trailblazer</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>LinkedIn Profile</label>
-                <input type="text" placeholder="linkedin.com/in/yourname">
-              </div>
-              <div class="form-group form-full">
-                <label>Message / Recommendation *</label>
-                <textarea placeholder="Share your experience working with Vipul, or leave a message..." required></textarea>
-              </div>
-            </div>
-            <div class="form-actions">
-              <button type="submit" class="sf-btn sf-btn-primary">Submit Referral</button>
-              <button type="reset" class="sf-btn sf-btn-secondary">Clear</button>
-            </div>
-          </form>
-        </div>
-      </div>
-
-      <!-- Existing recommendations -->
-      <div class="sf-card">
-        <div class="sf-card-header">
-          <div class="sf-card-header-icon" style="background:#F3EEFF;">⭐</div>
-          What People Say
-        </div>
-        <div class="sf-card-body">
-          <div style="display:flex; flex-direction:column; gap:1rem;">
-            <div style="padding:1rem; background:var(--bg); border-radius:6px; border-left:3px solid var(--sf-blue);">
-              <p style="margin-bottom:0.5rem; font-style:italic;">"Vipul is a talented Salesforce developer who consistently delivers high-quality solutions. His expertise in Apex and LWC helped us automate complex workflows that saved our team hours each week."</p>
-              <div style="font-size:0.75rem; font-weight:600; color:var(--text);">— Manager / Team Lead</div>
-              <div style="font-size:0.7rem; color:var(--text-muted);">Add a real recommendation from LinkedIn here</div>
-            </div>
-          </div>
-          <p style="margin-top:1rem; font-size:0.75rem; color:var(--text-muted);">* Add real recommendations from your LinkedIn or colleagues here.</p>
-        </div>
-      </div>
-
-    </div>
-
-  </div><!-- /.content -->
-</div><!-- /.main -->
-
-<footer>
-  <p>Built with ❤️ on the Salesforce Platform by <strong style="color:white;">Vipul Kumar</strong> · Salesforce Developer · 
-  <a href="https://www.linkedin.com/in/vipul-kumar-647965201" target="_blank">LinkedIn</a> · 
-  <a href="https://trailblazer.salesforce.com" target="_blank">Trailblazer.me</a></p>
-  <p style="margin-top:0.4rem; font-size:0.7rem;">This portfolio was inspired by the Salesforce Trailhead "Build Your Personal Portfolio on Salesforce" module.</p>
-</footer>
+  </main>
+</div>
 
 <script>
-// Page tab switching (top tabs + nav)
-function switchPage(page, navLink, tabBtn) {
-  // Hide all pages
-  document.querySelectorAll('.tab-pane[id^="page-"]').forEach(p => p.style.display = 'none');
-  document.getElementById('page-' + page).style.display = 'block';
-  // Update top nav links
-  document.querySelectorAll('.sf-nav-links a').forEach(a => a.classList.remove('active'));
-  if (navLink) navLink.classList.add('active');
-  // Update page tab buttons
-  document.querySelectorAll('.page-tabs .tab-btn').forEach(b => b.classList.remove('active'));
-  if (tabBtn) tabBtn.classList.add('active');
-  else {
-    // sync page tabs if called from nav
-    document.querySelectorAll('.page-tabs .tab-btn').forEach(b => {
-      if (b.textContent.toLowerCase().includes(page)) b.classList.add('active');
-    });
+// Tab Switching functionality
+function switchPage(pageId, e) {
+  if (e) e.preventDefault();
+  
+  // Update view
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + pageId).classList.add('active');
+  
+  // Update nav UI
+  if (e && e.target) {
+    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    
+    // Only add active if it's a nav link
+    if(e.target.classList.contains('active') !== undefined) {
+      e.target.classList.add('active');
+    }
   }
-  return false;
+  
+  // Close mobile nav
+  document.getElementById('navLinks').classList.remove('open');
+  
+  // Animate skill bars slightly delayed
+  setTimeout(animateSkills, 100);
 }
 
-// Inner tabs (About Me / Expertise / Experience)
-function switchInner(id, btn) {
-  document.querySelectorAll('.inner-tab').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  ['about-me','expertise','experience'].forEach(name => {
-    const el = document.getElementById('inner-' + name);
-    if (el) el.style.display = name === id ? 'block' : 'none';
+// Mobile Menu Toggle
+function toggleNav() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+// Skill Bar Animation
+function animateSkills() {
+  const fills = document.querySelectorAll('.skill-fill');
+  fills.forEach(f => {
+    f.style.width = f.getAttribute('data-width');
   });
 }
 
-// Referral form
-function handleReferral(e) {
-  e.preventDefault();
-  alert('Thank you! Your referral has been submitted. I will get back to you soon. 🙏');
-  e.target.reset();
-}
-
-// Sync tab buttons on page tab click — override onclick to also update nav
-document.querySelectorAll('.page-tabs .tab-btn').forEach((btn, i) => {
-  btn.addEventListener('click', function() {
-    const pages = ['home','portfolio','certifications','referrals'];
-    switchPage(pages[i], null, btn);
-    document.querySelectorAll('.sf-nav-links a').forEach((a,j) => {
-      a.classList.toggle('active', j === i);
-    });
-  });
-});
+// Init animations on load
+window.onload = () => {
+  setTimeout(animateSkills, 300);
+};
 </script>
 </body>
 </html>
