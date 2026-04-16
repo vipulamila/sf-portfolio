@@ -53,7 +53,8 @@ nav {
   background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border-glass);
 }
-.logo { font-family: var(--font-head); font-size: 1.5rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; }
+.logo { font-family: var(--font-head); font-size: 1.5rem; font-weight: 700; display: flex; align-items: center; gap: 0.8rem; }
+.logo img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary); }
 .logo span { background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
 .nav-links { display: flex; gap: 2rem; list-style: none; }
@@ -77,10 +78,10 @@ nav {
 .btn-secondary:hover { background: var(--bg-dark); border-color: var(--primary); }
 
 /* Main Grid */
-.layout-container { display: grid; grid-template-columns: 320px 1fr; gap: 2rem; max-width: 1300px; margin: 0 auto 5rem; padding: 0 5%; }
+.layout-container { display: grid; grid-template-columns: 320px 1fr; gap: 2rem; max-width: 1300px; margin: 120px auto 5rem; padding: 0 5%; }
 
 /* Sidebar Profile Info */
-.sidebar-card { padding: 1.5rem; position: sticky; top: 100px; }
+.sidebar-card { padding: 1.5rem; position: sticky; top: 120px; }
 .avatar { width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--primary), var(--accent)); margin: 0 auto 1.5rem; box-shadow: var(--glow); object-fit: cover; border: 3px solid white; }
 .info-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; font-size: 0.9rem; }
 .info-icon { width: 40px; height: 40px; border-radius: 12px; background: rgba(1, 118, 211, 0.08); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
@@ -144,7 +145,10 @@ nav {
 <body>
 
 <nav>
-  <div class="logo">VK <span>SF DEV</span></div>
+  <div class="logo">
+    <img src="https://profile.digital.salesforce.com/images/p/0058W00000Cp6FYQAZ/1729980005/F" alt="Vipul Kumar">
+    <span>VK</span> SF DEV
+  </div>
   <button class="mobile-btn" onclick="toggleNav()">☰</button>
   <ul class="nav-links" id="navLinks">
     <li><a href="#" class="active" onclick="switchPage('home', event)">Overview</a></li>
@@ -154,22 +158,14 @@ nav {
   </ul>
 </nav>
 
-<section class="hero">
-  <div class="hero-badge">⚡ Advanced Salesforce Solutions</div>
-  <h1>Vipul Kumar</h1>
-  <p>2.5 years of expertise in building scalable architectures, dynamic LWC interfaces, and seamless enterprise integrations on the Salesforce platform.</p>
-  <div class="hero-cta">
-    <a href="#" class="btn btn-primary" onclick="switchPage('portfolio', event)">View My Work</a>
-    <a href="#" class="btn btn-secondary" onclick="document.querySelector('.sidebar-card').scrollIntoView({behavior: 'smooth'})">Get Connected</a>
-  </div>
-</section>
-
 <div class="layout-container">
   
   <!-- Sidebar Panel -->
   <aside>
     <div class="glass sidebar-card">
       <img src="https://profile.digital.salesforce.com/images/p/0058W00000Cp6FYQAZ/1729980005/F" alt="Vipul Kumar" class="avatar" />
+      <h2 style="text-align: center; font-family: var(--font-head); font-size: 1.6rem; color: var(--text-main); margin-bottom: 0.2rem;">Vipul Kumar</h2>
+      <p style="text-align: center; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem; padding: 0 5px;">2.5 years of expertise in building scalable architectures and dynamic LWC interfaces.</p>
       
       <div class="info-row">
         <div class="info-icon">📍</div>
