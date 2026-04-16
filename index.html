@@ -385,14 +385,19 @@ function switchPage(pageId, e) {
   // Close mobile nav
   document.getElementById('navLinks').classList.remove('open');
   
-  // Scroll down to the content area smoothly, unless it's the initial page load without an event
+  // Scroll to correct area - on mobile scroll past sidebar to main content
   if (e) {
-    const layout = document.querySelector('.layout-container');
-    if (layout) {
-      // Small offset calculation for the fixed nav
-      const y = layout.getBoundingClientRect().top + window.scrollY - 80;
-      window.scrollTo({top: y, behavior: 'smooth'});
-    }
+    setTimeout(() => {
+      const isMobile = window.innerWidth <= 900;
+      const target = isMobile
+        ? document.querySelector('.layout-container main')
+        : document.querySelector('.layout-container');
+      if (target) {
+        const navHeight = document.querySelector('nav').offsetHeight;
+        const y = target.getBoundingClientRect().top + window.scrollY - navHeight - 16;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }, 50); // small delay so nav closes before scroll
   }
   
   // Animate skill bars slightly delayed
