@@ -365,6 +365,16 @@ function switchPage(pageId, e) {
   // Close mobile nav
   document.getElementById('navLinks').classList.remove('open');
   
+  // Scroll down to the content area smoothly, unless it's the initial page load without an event
+  if (e) {
+    const layout = document.querySelector('.layout-container');
+    if (layout) {
+      // Small offset calculation for the fixed nav
+      const y = layout.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({top: y, behavior: 'smooth'});
+    }
+  }
+  
   // Animate skill bars slightly delayed
   setTimeout(animateSkills, 100);
 }
